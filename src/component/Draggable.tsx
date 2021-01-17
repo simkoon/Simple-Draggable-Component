@@ -1,7 +1,7 @@
-import { FunctionComponent, ReactNode } from 'react';
+import { Children, FunctionComponent, ReactChild, ReactChildren } from 'react';
 import { BoxWrapper } from './BoxWrapper';
 interface DraggableProps {
-  children: Array<ReactNode>;
+  children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 }
 
 export const Draggable: FunctionComponent<DraggableProps> = (props) => {
@@ -68,12 +68,14 @@ export const Draggable: FunctionComponent<DraggableProps> = (props) => {
     }
   };
 
+  console.log(props.children);
+
   return (
     <div className="draggable">
-      {props.children.map((item, index) => {
+      {Children.map(props.children, (box, index) => {
         return (
           <BoxWrapper key={index} onDrag={onDrag}>
-            {item}
+            {box}
           </BoxWrapper>
         );
       })}
