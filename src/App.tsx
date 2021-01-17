@@ -5,9 +5,9 @@ import { Box } from './component/Box';
 
 function App() {
   return (
-    <Draggable name="sdf">
-      <Box></Box>
-      <Box></Box>
+    <Draggable>
+      <Box />
+      <Box />
     </Draggable>
   );
 }
